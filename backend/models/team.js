@@ -1,7 +1,7 @@
 const {model, Schema} = require('mongoose');
 
 const schema = new Schema({
-    name:  String, // String is shorthand for {type: String}
+    name:  String, 
     // players: {
     //   type: Schema.Types.ObjectId,
     //   ref: 'Player'
@@ -10,8 +10,8 @@ const schema = new Schema({
     //     type: Schema.Types.ObjectId,
     //     ref: 'Match'
     // },
-    // description:   String,
-   player: String,
+    description:   String,
+    player: String,
   },
   );
 
