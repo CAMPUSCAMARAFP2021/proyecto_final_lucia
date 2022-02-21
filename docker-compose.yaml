@@ -1,0 +1,37 @@
+version: '2'
+services:
+  backend:
+    image: node
+    ports:
+      - 3001:3000
+    command: npm start
+    working_dir: /app
+    volumes:
+      - ./backend:/app/
+    environment:
+      MONGODB_URL: mongodb://mongo:27017/todoList
+  react:
+    image: node
+    working_dir: /app
+    command: npm start
+    environment:
+      PORT: 4200
+      HOST: 0.0.0.0
+    ports:
+      - 4200:4200
+    volumes:
+      - ./react:/app
+
+
+  mongo:
+    image: mongo
+    volumes:
+      - ./data/mongo:/data/db
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://mongo:27017/
