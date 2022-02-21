@@ -1,10 +1,18 @@
 var express = require('express');
 var router = express.Router();
+
 var teamController = require('../controllers/team')
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-    teamController.
-  res.send('respond with a resource');
+
+
+router.get('/', async function(req, res) {
+    const teams = await teamController.getTeams();
+    res.json(teams);
+});
+
+router.post('/',async(req, res) => {
+    const {team} = req.body;
+    const result =  await teamController.createTeam(team);
+    res.json(result);
 });
 
 module.exports = router;

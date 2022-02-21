@@ -3,7 +3,7 @@ services:
   backend:
     image: node
     ports:
-      - 3001:3000
+      - 3000:3000
     command: npm start
     working_dir: /app
     volumes:
