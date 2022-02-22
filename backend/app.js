@@ -6,6 +6,8 @@ var logger = require('morgan');
 const {connect} = require('mongoose');
 const {MONGODB_URL} = process.env;
 connect(MONGODB_URL, () => console.log('base de datos conectada'));
+var cors = require('cors');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -13,6 +15,7 @@ var teamsRouter = require('./routes/teams');
 var fieldsRouter = require('./routes/fields')
 
 var app = express();
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
