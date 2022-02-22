@@ -17,19 +17,19 @@ const createTeams = async (team, jwt) => {
         .then(response => response.json());
 }
 
-const deleteTeam = async (team, jwt) => {
-    const headers = new Headers();
-    headers.append("Content-Type", "application/json");
-    headers.append("Authorization", jwt);
-    const requestOptions = {
-        method: 'DELETE', headers, redirect: 'follow'
-    };
-    return fetch("http://localhost:3000/teams/" + team._id, requestOptions)
-        .then(response => response.text());
-}
+// const deleteTeam = async (team, jwt) => {
+//     const headers = new Headers();
+//     headers.append("Content-Type", "application/json");
+//     headers.append("Authorization", jwt);
+//     const requestOptions = {
+//         method: 'DELETE', headers, redirect: 'follow'
+//     };
+//     return fetch("http://localhost:3000/teams/" + team._id, requestOptions)
+//         .then(response => response.text());
+// }
 
 export {
     getTeams,
     createTeams,
-    deleteTeam
+
 }

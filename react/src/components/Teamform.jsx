@@ -29,10 +29,7 @@ const TaskForm = ({createTeam}) => {
     return <>
         <form>
             <input type="text" name="name" onChange={setName} value={team.name}></input>
-            <p>{team.name}</p>
             <input type="text" name="player" onChange={setplayer} value={team.player}></input>
-            <p>{team.player}</p>
-            <p>{JSON.stringify(team)}</p>
             {/* <textarea onChange={setDescription} value={team.description}></textarea> */}
             {/* <DatePicker selected={task.dueDate} onChange={setDate} ></DatePicker> */}
         </form>
