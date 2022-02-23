@@ -1,3 +1,4 @@
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
@@ -6,7 +7,7 @@ import Card from 'react-bootstrap/Card';
 const Team = ({team, onDelete}) =>  
     <Card style={{ width: '18rem' }}>
         <Card.Body>
-        <Card.Img variant="top" src="${team.img}" />
+        <Card.Img variant="top" src={team.img} Text="hdp" />
             <Card.Title>{team.name}</Card.Title>
             <Card.Text>{team.slogan}</Card.Text>
             <Card.Text>{team.anthem}</Card.Text>
