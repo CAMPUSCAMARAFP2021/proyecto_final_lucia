@@ -9,6 +9,7 @@ const Team = ({team, onDelete}) =>
         <Card.Img variant="top" src="${team.img}" />
             <Card.Title>{team.name}</Card.Title>
             <Card.Text>{team.slogan}</Card.Text>
+            <Card.Text>{team.anthem}</Card.Text>
             <Button variant="primary" onClick={onDelete}>Eliminar</Button>
         </Card.Body>
     </Card>
