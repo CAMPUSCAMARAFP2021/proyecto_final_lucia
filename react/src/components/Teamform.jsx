@@ -1,13 +1,17 @@
 import { useState } from "react";
 import Button from './Button';
+
+
 //import DatePicker from "react-datepicker";
 //import "react-datepicker/dist/react-datepicker.css";
 
-const TaskForm = ({createTeam}) => {
+const TeamForm = ({createTeam}) => {
     const [team, setTeam] = useState(
         {
             "name": "",
-            "player": ""
+            "slogan": "",
+            "player": "",
+            "anthem": ""
         }
     );
 
@@ -20,18 +24,22 @@ const TaskForm = ({createTeam}) => {
         const player = target.value;
         setTeam(lastValue => ({ ...lastValue, player }))
     }
-
-    // const setDescription = ({target}) => {
-    //     const description = target.value;
-    //     setTeam( lastValue => ({...lastValue, description}))
-    // }
+    const setAnthem = ({ target }) => {
+        const anthem = target.value;
+        setTeam(lastValue => ({ ...lastValue, anthem }))
+    }
+    const setSlogan = ({ target }) => {
+        const slogan = target.value;
+        setTeam(lastValue => ({ ...lastValue, slogan }))
+    }
 
     return <>
+    
         <form>
             <input type="text" name="name" onChange={setName} value={team.name}></input>
             <input type="text" name="player" onChange={setplayer} value={team.player}></input>
-            {/* <textarea onChange={setDescription} value={team.description}></textarea> */}
-            {/* <DatePicker selected={task.dueDate} onChange={setDate} ></DatePicker> */}
+            <input type="text" name="himno" onChange={setAnthem} value={team.anthem}></input>
+            <input type="text" name="himno" onChange={setSlogan} value={team.slogan}></input>
         </form>
         <Button name="enviar" onClick={() => createTeam(team)}></Button>
         <div>
@@ -40,4 +48,4 @@ const TaskForm = ({createTeam}) => {
     </>;
 }
 
-export default TaskForm;
+export default TeamForm;

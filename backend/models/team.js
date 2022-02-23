@@ -10,8 +10,10 @@ const schema = new Schema({
     //     type: Schema.Types.ObjectId,
     //     ref: 'Match'
     // },
-    description:   String,
+    slogan:   String,
     player: String,
+    anthem: String,
+    img: String
   },
   );
 

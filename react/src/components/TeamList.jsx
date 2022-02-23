@@ -2,7 +2,7 @@ import Team from "./Team"
 import TeamForm from './Teamform';
 
 import { useState, useEffect } from 'react';
-import {getTeams, createTeams} from "../api/teams";
+import {getTeams, createTeams, deleteTeam} from "../api/teams";
 
 
 
@@ -19,16 +19,19 @@ const TeamList = ({jwt}) => {
                  setIsLoading(false);       
             }); 
     };
-    // const doDeleteTask = (team, jwt) => {
-    //     setIsLoading(true);
-    //     deleteTeam(team)
-    //     .then(loadData);
-    // };
+
+    const doDeleteTeam = (team, jwt) => {
+        setIsLoading(true);
+        deleteTeam(team)
+        .then(loadData);
+        setIsLoading(false)
+    };
+    
     const loadData = () => {
         setIsLoading(true);
         getTeams(jwt).then((teams) => {    
             setTeams(teams);
-            setIsLoading(true)
+            setIsLoading(false)
         }).catch(() => setIsLoading(false));
     }
     useEffect(loadData,[]); 
@@ -42,7 +45,7 @@ const TeamList = ({jwt}) => {
                 <Team 
                     key={team._id} 
                     team={team} 
-                    onDelete={() => doDeleteTask(team)}
+                    onDelete={() => doDeleteTeam(team)}
                 />)}
         <TeamForm createTeam={doCreateTeam}></TeamForm>
     </>

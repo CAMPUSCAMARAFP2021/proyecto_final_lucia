@@ -1,35 +1,35 @@
-const getTeams = async (jwt) => {
+const getMatches = async (jwt) => {
     const headers = new Headers();
     headers.append("Authorization", jwt);
-    return fetch("http://localhost:3000/teams", {headers})
+    return fetch("http://localhost:3000/matches", {headers})
     .then(res => res.json())
 }
 
-const createTeams = async (team, jwt) => {
+const createMatches = async (match, jwt) => {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append("Authorization", jwt);
-    const body = JSON.stringify({team});
+    const body = JSON.stringify({match});
     const requestOptions = {
         method: 'POST', headers, body,redirect: 'follow'
     };
-    return fetch("http://localhost:3000/teams", requestOptions)
+    return fetch("http://localhost:3000/matches", requestOptions)
         .then(response => response.json());
 }
 
-const deleteTeam = async (team, jwt) => {
+const deleteMatch = async (metch, jwt) => {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append("Authorization", jwt);
     const requestOptions = {
         method: 'DELETE', headers, redirect: 'follow'
     };
-    return fetch("http://localhost:3000/teams/" + team._id, requestOptions)
+    return fetch("http://localhost:3000/metches/" + metch._id, requestOptions)
         .then(response => response.text());
 }
 
 export {
-    getTeams,
-    createTeams,
-    deleteTeam
+    getMatches,
+    createMatches,
+    deleteMatch 
 }
