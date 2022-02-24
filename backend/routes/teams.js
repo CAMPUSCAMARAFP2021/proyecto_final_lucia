@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var teamController = require('../controllers/team')
-
+var playersRouter = require('./players');
 
 router.get('/', async function(req, res) {
     const teams = await teamController.getTeams();
@@ -14,6 +14,12 @@ router.post('/',async(req, res) => {
     const result =  await teamController.createTeam(team);
     res.json(result);
 });
+
+router.use('/:teamId/players', async (req, res, next) => {
+    const {teamId} = req.params;
+    req.author = await teamController.createTeam(teamId);
+    next();
+} ,playersRouter);
 
 router.delete('/:teamId', async(req,res) => {
     const {teamId} = req.params;

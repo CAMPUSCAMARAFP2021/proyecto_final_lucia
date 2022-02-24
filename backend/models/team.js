@@ -11,7 +11,9 @@ const schema = new Schema({
     //     ref: 'Match'
     // },
     slogan:   String,
-    player: String,
+    players: [
+      {type: Schema.Types.ObjectId, ref:'Team'}
+  ],
     anthem: String,
     img: String
   },
