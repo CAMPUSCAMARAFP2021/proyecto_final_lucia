@@ -1,3 +1,5 @@
+const Players = require('../models/player');
+
 const Team = require('../models/team');
 
 const createTeam = async (team) => {

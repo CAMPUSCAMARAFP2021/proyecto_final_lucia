@@ -6,8 +6,8 @@ const NavBar = () => {
     <Navbar bg="dark" variant="dark">
       <Container>
       <Nav className="me-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#">Features</Nav.Link>
+        <Nav.Link href="#home">Inicio</Nav.Link>
+        <Nav.Link href="#">Partidos</Nav.Link>
         <Nav.Link href="#">Pricing</Nav.Link>
       </Nav>
       </Container>

@@ -7,7 +7,8 @@ import NavBar from "./components/Navbar";
 
 function App() {
   return <>
-  <NavBar></NavBar> <Container className="p-3">
+  <NavBar></NavBar> 
+  <Container className="p-3">
   <Container className="p-5 mb-4 bg-light rounded-3">
     <h1 className="header">Welcome To sports</h1>
       <TeamList/>

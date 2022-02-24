@@ -1,16 +1,12 @@
 const {model, Schema} = require('mongoose');
 
 const schema = new Schema({ 
-    // players: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: 'Player'
-    // },
-    // matches:{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Match'
-    // },
     duration: Number,
-    score: Number,
+    score: {type :Number, default: 00 },
+    Date: Date,
+    player: [
+      {type: Schema.Types.ObjectId, ref:'Match'}
+  ],
   },
   );
 

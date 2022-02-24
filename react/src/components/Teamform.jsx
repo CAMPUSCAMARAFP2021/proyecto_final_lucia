@@ -1,4 +1,9 @@
 import { useState } from "react";
+import { getPlayers } from "../api/players";
+
+
+
+
 import Button from './Button';
 
 
@@ -10,8 +15,7 @@ const TeamForm = ({createTeam}) => {
         {
             "name": "",
             "slogan": "",
-            "player": "",
-            "anthem": ""
+            "anthem": "",
         }
     );
 
@@ -20,8 +24,8 @@ const TeamForm = ({createTeam}) => {
         setTeam(lastValue => ({ ...lastValue, name }))
     }
 
-    const setplayer = ({ target }) => {
-        const player = target.value;
+    const setplayer = ({target}) => {
+        const player =target.value;
         setTeam(lastValue => ({ ...lastValue, player }))
     }
     const setAnthem = ({ target }) => {
@@ -37,7 +41,7 @@ const TeamForm = ({createTeam}) => {
     
         <form>
             <input type="text" name="name" onChange={setName} value={team.name}></input>
-            <input type="text" name="player" onChange={setplayer} value={team.player}></input>
+            {/* <input type="text" name="player" onChange={setplayer} value={player.player}></input> */}
             <input type="text" name="himno" onChange={setAnthem} value={team.anthem}></input>
             <input type="text" name="himno" onChange={setSlogan} value={team.slogan}></input>
         </form>

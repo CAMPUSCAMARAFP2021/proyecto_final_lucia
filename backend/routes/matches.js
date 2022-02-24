@@ -15,10 +15,10 @@ router.post('/',async(req, res) => {
     res.json(result);
 });
 
-router.delete('/:teamId', async(req,res) => {
-    const {matchId} = req.params;
-    const result = await matchController.deleteTeam(matchId);
-    res.json(result);
-});
+// router.delete('/:matchId', async(req,res) => {
+//     const {matchId} = req.params;
+//     const result = await matchController.(matchId);
+//     res.json(result);
+// });
 
 module.exports = router;
