@@ -6,8 +6,12 @@ const createMatch = async (match) => {
 const getMatchs = async () => {
     return await Match.find()
 }
+const getMatchsbyPlayer = async(player) =>{
+    return await Match.find({player}).populate("players")
+}
 
 module.exports = {
     createMatch,
-    getMatchs
+    getMatchs,
+    getMatchsbyPlayer
 }

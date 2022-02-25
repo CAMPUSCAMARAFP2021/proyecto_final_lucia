@@ -38,7 +38,7 @@ const TeamForm = ({createTeam}) => {
     }
 
     return <>
-    
+    <table></table>
         <form>
             <input type="text" name="name" onChange={setName} value={team.name}></input>
             {/* <input type="text" name="player" onChange={setplayer} value={player.player}></input> */}

@@ -5,7 +5,8 @@ var matchController = require('../controllers/match')
 
 
 router.get('/', async function(req, res) {
-    const matches = await matchController.getMatchs();
+    console.log(req.player)
+    const matches = req.player ? await matchController.getMatchsbyPlayer(req.player) : await matchController.getMatchs();
     res.json(matches);
 });
 

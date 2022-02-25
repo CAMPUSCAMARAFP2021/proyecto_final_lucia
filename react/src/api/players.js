@@ -5,6 +5,7 @@ const getPlayers = async (jwt) => {
     .then(res => res.json())
 }
 
+
 // const getMatchplayers = async (jwt) => {
 //     const headers = new Headers();
 //     headers.append("Authorization", jwt);
