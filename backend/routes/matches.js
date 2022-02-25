@@ -15,6 +15,10 @@ router.post('/',async(req, res) => {
     res.json(result);
 });
 
+router.get('/', async function(req, res) {
+    const matches = await matchController.getMatchs();
+    res.json(matches);
+});
 // router.delete('/:matchId', async(req,res) => {
 //     const {matchId} = req.params;
 //     const result = await matchController.(matchId);

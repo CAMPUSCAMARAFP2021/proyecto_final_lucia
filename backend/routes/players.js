@@ -17,18 +17,17 @@ router.get('/', async(req, res) => {
 
 router.get('/:playerId', async(req, res) => {
     const {playerId} = req.params;
-    
-    const player = await playersController.getPlayers({"_id": "621678982b200fada0b5cfa1"});
+    const player = await playersController.getPlayers(playerId);
     res.json(player);
 })
 
 router.use('/:playerId/matches', async (req, res, next) => {
-    const {playerId} = req.params;
+    const playerId = req.params;
     console.log(playerId)
-    req.author = await playersController.getPlayers();
+    req.players = await playersController.getPlayers(playerId);
+    console.log(req.players)
     next();
 } ,matchRouter);
-
 
 // router.delete('/:plaerId', async(req,res) => {
 //     const {playerId} = req.params;

@@ -4,7 +4,7 @@ const schema = new Schema({
     name:  String, 
     slogan:   String,
     players: [
-      {type: Schema.Types.ObjectId, ref:'Team'}
+      {type: Schema.Types.ObjectId, ref:'March'}
   ],
     anthem: String,
     img: String

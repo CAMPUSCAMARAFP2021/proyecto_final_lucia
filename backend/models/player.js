@@ -3,7 +3,7 @@ const {model, Schema} = require('mongoose');
 const schema = new Schema({
     name:  String, 
     slogan:   String,
-    player: [
+    matches: [
       {type: Schema.Types.ObjectId, ref:'March'}
   ],
     anthem: String,

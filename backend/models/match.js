@@ -4,8 +4,8 @@ const schema = new Schema({
     duration: Number,
     score: {type :Number, default: 00 },
     Date: Date,
-    player: [
-      {type: Schema.Types.ObjectId, ref:'Match'}
+    players: [
+      {type: Schema.Types.ObjectId, ref:'Player'}
   ],
   },
   );
