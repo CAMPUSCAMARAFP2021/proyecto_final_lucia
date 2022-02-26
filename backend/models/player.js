@@ -2,12 +2,10 @@ const {model, Schema} = require('mongoose');
 
 const schema = new Schema({
     name:  String, 
-    slogan:   String,
+    number:   Number,
     matches: [
       {type: Schema.Types.ObjectId, ref:'March'}
   ],
-    anthem: String,
-    img: String
   },
   );
 

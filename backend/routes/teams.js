@@ -13,9 +13,8 @@ router.get('/', async function(req, res) {
 });
 
 router.post('/',async(req, res) => {
-    const players = await matchesController.getMatchs();
     const {team} = req.body;
-    const result =  await teamController.createTeam(team, players);
+    const result =  await teamController.createTeam(team);
     res.json(result);
 });
 
@@ -23,6 +22,7 @@ router.post('/',async(req, res) => {
 router.use('/:teamId/matches', async (req, res, next) => {
     const {teamId} = req.params;
     req.team = await teamController.getTeam(teamId);
+    console.log(req.team)
     next();
 } ,matchRouter);
 

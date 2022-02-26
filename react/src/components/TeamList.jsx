@@ -6,6 +6,7 @@ import {getTeams, createTeams, deleteTeam} from "../api/teams";
 
 
 
+
 const TeamList = ({jwt}) => {
     const [teams, setTeams] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +20,7 @@ const TeamList = ({jwt}) => {
                  setIsLoading(false);       
             }); 
     };
-
+   
     const doDeleteTeam = (team, jwt) => {
         setIsLoading(true);
         deleteTeam(team)
@@ -48,6 +49,7 @@ const TeamList = ({jwt}) => {
                     onDelete={() => doDeleteTeam(team)}
                 />)}
         <TeamForm createTeam={doCreateTeam}></TeamForm>
+       
     </>
         
 }

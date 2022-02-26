@@ -6,13 +6,6 @@ const getPlayers = async (jwt) => {
 }
 
 
-// const getMatchplayers = async (jwt) => {
-//     const headers = new Headers();
-//     headers.append("Authorization", jwt);
-//     return fetch("http://localhost:3000/player", {headers})
-//     .then(res => res.json())
-// }
-
 const createPlayers = async (player, jwt) => {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
@@ -40,6 +33,6 @@ const deletePlayer = async (metch, jwt) => {
 export {
     getPlayers ,
     createPlayers ,
-    deletePlayer,
+    deletePlayer
 
 }
