@@ -8,6 +8,9 @@ const createTeam = async (team) => {
 const getTeams = async () => {
     return await Team.find()
 }
+const getTeam = async (teamId) => {
+    return await Team.findById(teamId);
+}
 const deleteTeam = async (teamId) => {
     const team = await Team.findByIdAndDelete(teamId);
     return false;
@@ -16,5 +19,6 @@ const deleteTeam = async (teamId) => {
 module.exports = {
     createTeam,
     getTeams,
-    deleteTeam
+    deleteTeam,
+    getTeam
 }

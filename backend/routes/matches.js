@@ -9,6 +9,11 @@ router.get('/', async function(req, res) {
     const matches = req.player ? await matchController.getMatchsbyPlayer(req.player) : await matchController.getMatchs();
     res.json(matches);
 });
+router.get('/', async function(req, res) {
+    console.log(req.team)
+    const matches = req.team ? await matchController.getMatchsbyTeam(req.team) : await matchController.getMatchs();
+    res.json(matches);
+});
 
 router.post('/',async(req, res) => {
     const {match} = req.body;

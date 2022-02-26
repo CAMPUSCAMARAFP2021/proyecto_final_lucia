@@ -4,6 +4,8 @@ var router = express.Router();
 var teamController = require('../controllers/team')
 var matchesController = require('../controllers/match')
 var playersRouter = require('./players');
+var matchRouter = require('./matches')
+
 
 router.get('/', async function(req, res) {
     const teams = await teamController.getTeams();
@@ -17,11 +19,13 @@ router.post('/',async(req, res) => {
     res.json(result);
 });
 
-router.use('/:teamId/players', async (req, res, next) => {
+
+router.use('/:teamId/matches', async (req, res, next) => {
     const {teamId} = req.params;
-    req.author = await teamController.createTeam(teamId);
+    req.team = await teamController.getTeam(teamId);
     next();
-} ,playersRouter);
+} ,matchRouter);
+
 
 router.delete('/:teamId', async(req,res) => {
     const {teamId} = req.params;

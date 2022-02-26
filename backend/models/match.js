@@ -7,6 +7,9 @@ const schema = new Schema({
     players: [
       {type: Schema.Types.ObjectId, ref:'Player'}
   ],
+  teams: [
+    {type: Schema.Types.ObjectId, ref:'Team'}
+],
   },
   );
 

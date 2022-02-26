@@ -9,9 +9,13 @@ const getMatchs = async () => {
 const getMatchsbyPlayer = async(player) =>{
     return await Match.find({player}).populate("players")
 }
+const getMatchsbyTeam = async(team) =>{
+    return await Match.find({team}).populate("teams")
+}
 
 module.exports = {
     createMatch,
     getMatchs,
-    getMatchsbyPlayer
+    getMatchsbyPlayer,
+    getMatchsbyTeam
 }
