@@ -9,8 +9,9 @@ var cors = require ('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var teamsRouter = require('./routes/teams');
-var brandRouter = require('./routes/brands');
+var matchRouter = require('./routes/matches');
 var playerRouter = require('./routes/player');
+var fieldRouter = require('./routes/field');
 
 var app = express();
 app.use(cors());
@@ -30,6 +31,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/teams', teamsRouter);
 app.use('/player', playerRouter);
+app.use('/matches', matchRouter);
+app.use('/fields', fieldRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

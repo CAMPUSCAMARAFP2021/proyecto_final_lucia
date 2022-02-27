@@ -1,42 +1,35 @@
-const getPlayer = async (jwt) => {
+const getField = async (jwt) => {
     const headers = new Headers();
     headers.append("Authorization", jwt);
-    return fetch("http://localhost:3000/player", {headers})
+    return fetch("http://localhost:3000/fields", {headers})
     .then(res => res.json())
 }
 
-const getMatches = async () => {
-    return fetch("http://localhost:3000/matches")
-    .then(res => res.json())
-}
-
-const createPlayer = async (player, jwt) => {
+const createField = async (field, jwt) => {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append("Authorization", jwt);
-    const body = JSON.stringify({player});
+    const body = JSON.stringify({field});
     const requestOptions = {
         method: 'POST', headers, body,redirect: 'follow'
     };
-    return fetch("http://localhost:3000/player", requestOptions)
+    return fetch("http://localhost:3000/fields", requestOptions)
         .then(response => response.json());
 }
 
-
-const deletePlayer = async (player, jwt) => {
+const deleteField = async (field, jwt) => {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append("Authorization", jwt);
     const requestOptions = {
         method: 'DELETE', headers, redirect: 'follow'
     };
-    return fetch("http://localhost:3000/player/" + player._id, requestOptions)
+    return fetch("http://localhost:3000/fields/" + field._id, requestOptions)
         .then(response => response.text());
 }
 
 export {
-    getPlayer,
-    createPlayer,
-    deletePlayer,
-    getMatches 
+    getField ,
+    createField ,
+    deleteField  
 }

@@ -43,7 +43,9 @@ const PlayerList = ({jwt}) => {
                     key={player._id} 
                     player={player} 
                    onDelete={() => doDeletePlayer(player)}
-                />)}
+                />)
+            
+                }
         <PlayerForm createPlayer={doCreatePlayer}></PlayerForm>
     </>
         

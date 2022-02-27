@@ -3,15 +3,12 @@ var express = require('express');
 var router = express.Router();
 
 var playerController = require('../controllers/player')
+var matchRouter = require('./matches');
 
 router.get('/', async function(req, res) {
-
     const players = await playerController.getPlayer();
     res.json(players);
-
 });
-
-
 
 router.post('/',async(req, res) => {
 
@@ -21,9 +18,6 @@ router.post('/',async(req, res) => {
 
 });
 
-
-
-
 router.delete('/:playerId', async(req,res) => {
 
     const {playerId} = req.params;
@@ -31,8 +25,11 @@ router.delete('/:playerId', async(req,res) => {
     res.json(result);
 
 });
-
-
+router.use('/:playerId/matches', async (req, res, next) => {
+    const {playerId} = req.params;
+    req.player = await playerController.getPlayers(playerId);
+    next();
+} ,matchRouter);
 
 module.exports = router;
 

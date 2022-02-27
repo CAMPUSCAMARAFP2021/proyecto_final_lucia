@@ -6,8 +6,17 @@ const createField = async(team) => {
 const getFields = async () => {
      return await Field.find()
 }
+const getField = async (fieldId) => {
+    return await Field.findById(fieldId);
+}
+const deleteField = async (fieldId) => {     
+    const team = await Field.findByIdAndDelete(fieldId);
+    return false;
+}
 
 module.exports = {
     createField,
-    getFields
+    getFields,
+    getField,
+    deleteField
 }

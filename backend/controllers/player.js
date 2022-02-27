@@ -10,16 +10,18 @@ const deletePlayer = async (playerId) => {     
     return false;
 
 }
-
-
 const getPlayer = async () => {     
     return await Player.find()
+}
+const getPlayers = async (playerId) => {
+    return await Player.findById(playerId)
 }
 
 
 module.exports = { 
      createPlayer,    
      getPlayer,
-    deletePlayer
+    deletePlayer,
+    getPlayers
     }
 
