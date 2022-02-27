@@ -31,5 +31,10 @@ router.use('/:playerId/matches', async (req, res, next) => {
     next();
 } ,matchRouter);
 
+router.get('/', async function(req, res) {
+    const players = req.player ? await playerController.getPlayersbyTeam(req.player) : await playerController.getPlayer();
+    res.json(players);
+});
+
 module.exports = router;
 

@@ -16,12 +16,16 @@ const getPlayer = async () => {     
 const getPlayers = async (playerId) => {
     return await Player.findById(playerId)
 }
+const getPlayersbyTeam = async(team) =>{
+    return await Player.find({team}).populate("teams")
+}
 
 
 module.exports = { 
      createPlayer,    
      getPlayer,
     deletePlayer,
-    getPlayers
+    getPlayers,
+    getPlayersbyTeam
     }
 
