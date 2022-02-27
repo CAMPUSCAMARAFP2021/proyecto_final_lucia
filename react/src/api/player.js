@@ -1,12 +1,11 @@
-const getPlayers = async (jwt) => {
+const getPlayer = async (jwt) => {
     const headers = new Headers();
     headers.append("Authorization", jwt);
-    return fetch("http://localhost:3000/players", {headers})
+    return fetch("http://localhost:3000/player", {headers})
     .then(res => res.json())
 }
 
-
-const createPlayers = async (player, jwt) => {
+const createPlayer = async (player, jwt) => {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append("Authorization", jwt);
@@ -14,25 +13,24 @@ const createPlayers = async (player, jwt) => {
     const requestOptions = {
         method: 'POST', headers, body,redirect: 'follow'
     };
-    return fetch("http://localhost:3000/players", requestOptions)
+    return fetch("http://localhost:3000/player", requestOptions)
         .then(response => response.json());
 }
 
-
-const deletePlayer = async (metch, jwt) => {
+const deletePlayer = async (player, jwt) => {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append("Authorization", jwt);
     const requestOptions = {
         method: 'DELETE', headers, redirect: 'follow'
     };
-    return fetch("http://localhost:3000/players/" + metch._id, requestOptions)
+    return fetch("http://localhost:3000/player/" + player._id, requestOptions)
         .then(response => response.text());
 }
 
 export {
-    getPlayers ,
-    createPlayers ,
+    getPlayer,
+    createPlayer,
     deletePlayer
 
 }

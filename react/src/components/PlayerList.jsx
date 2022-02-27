@@ -1,52 +1,50 @@
 import Player from "./Player"
-import PlayerForm from './Playerform';
+import PlayerForm from './PlayerForm';
 
 import { useState, useEffect } from 'react';
-import { getPlayers, createPlayers, deletePlayer} from "../api/players";
+import { getPlayer,createPlayer, deletePlayer} from "../api/player";
 
 const PlayerList = ({jwt}) => {
-    const [players, setPlayers] = useState([]);
+    const [Players, setPlayers] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     
 
-    const doCreatePlayer = (team) => {
+    const doCreatePlayer = (player) => {
         setIsLoading(true);
-        createPlayers(team)
-            .then((newTeam) => {
-                 setPlayers((prevState) => [...prevState, newTeam]);
+        createPlayer(player)
+            .then((newPlayer) => {
+                 setPlayers((prevState) => [...prevState, newPlayer]);
                  setIsLoading(false);       
             }); 
     };
-   
-    const doDeletePlayer = (team, jwt) => {
-        setIsLoading(true);
-        deletePlayer(team)
-        .then(loadData);
-        setIsLoading(false)
-    };
     
+
+    const doDeletePlayer= (player, jwt) => {
+       setIsLoading(true);
+       deletePlayer(player)
+       .then(loadData);
+       setIsLoading(false)
+   };
+
     const loadData = () => {
         setIsLoading(true);
-        getPlayers(jwt).then((teams) => {    
-            setPlayers(teams);
+        getPlayer(jwt).then((players) => {    
+            setPlayers(players);
             setIsLoading(false)
         }).catch(() => setIsLoading(false));
     }
     useEffect(loadData,[]); 
     
-   
-    
     return <>
         {isLoading ? 
-            <p>cargando...</p> : 
-            players.map(player => 
+            <p>espera...</p> : 
+            Players.map(player => 
                 <Player 
                     key={player._id} 
-                    team={player} 
-                    onDelete={() => doDeletePlayer(player)}
+                    player={player} 
+                   onDelete={() => doDeletePlayer(player)}
                 />)}
         <PlayerForm createPlayer={doCreatePlayer}></PlayerForm>
-       
     </>
         
 }

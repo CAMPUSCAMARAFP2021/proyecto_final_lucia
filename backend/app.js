@@ -3,20 +3,18 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const {connect} = require('mongoose');
-const {MONGODB_URL} = process.env;
-connect(MONGODB_URL, () => console.log('base de datos conectada'));
-var cors = require('cors');
+var cors = require ('cors');
 
 
-
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 var teamsRouter = require('./routes/teams');
- var fieldsRouter = require('./routes/fields');
- var playersRouter = require('./routes/players');
-var matchesRouter = require('./routes/matches')
+var brandRouter = require('./routes/brands');
+var playerRouter = require('./routes/player');
 
 var app = express();
 app.use(cors());
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,11 +26,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
- app.use('/teams', teamsRouter);
- app.use('/fields', fieldsRouter);
-app.use('/matches', matchesRouter);
- app.use('/players', playersRouter);
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/teams', teamsRouter);
+app.use('/player', playerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

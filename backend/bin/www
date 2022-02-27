@@ -8,6 +8,8 @@ var app = require('../app');
 var debug = require('debug')('app:server');
 var http = require('http');
 
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://mongo:27017/ballsProject').then(() => console.log('database ready'));
 /**
  * Get port from environment and store in Express.
  */

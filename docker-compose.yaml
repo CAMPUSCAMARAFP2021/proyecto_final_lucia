@@ -9,7 +9,7 @@ services:
     volumes:
       - ./backend:/app/
     environment:
-      MONGODB_URL: mongodb://mongo:27017/partidos
+      MONGODB_URL: mongodb://mongo:27017/matches
   react:
     image: node
     working_dir: /app

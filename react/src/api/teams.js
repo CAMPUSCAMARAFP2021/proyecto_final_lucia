@@ -17,7 +17,7 @@ const createTeams = async (team, jwt) => {
         .then(response => response.json());
 }
 
-const deleteTeam = async (team, jwt) => {
+const deleteTeams = async (team, jwt) => {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append("Authorization", jwt);
@@ -31,5 +31,5 @@ const deleteTeam = async (team, jwt) => {
 export {
     getTeams,
     createTeams,
-    deleteTeam
+    deleteTeams
 }

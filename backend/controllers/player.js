@@ -1,21 +1,25 @@
+
 const Player = require('../models/player');
 
-const createPlayer = async (match) => {
-    return await Player.create(match);
+const createPlayer = async(player) => {
+    return await Player.create(player);
 }
 
-/**get all players */
-const getPlayers = async () => {
-    return await Player.find();
+const deletePlayer = async (playerId) => {     
+    const team = await Player.findByIdAndDelete(playerId);
+    return false;
+
 }
 
-/**get specific player */
-const getPlayer = async (plaerId) => {
-    return await Player.findById(plaerId);
+
+const getPlayer = async () => {     
+    return await Player.find()
 }
 
-module.exports = {
-    createPlayer,
-    getPlayers,
-    getPlayer
-}
+
+module.exports = { 
+     createPlayer,    
+     getPlayer,
+    deletePlayer
+    }
+

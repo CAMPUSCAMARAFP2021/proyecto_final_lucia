@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 var teamController = require('../controllers/team')
-var matchesController = require('../controllers/match')
-var playersRouter = require('./players');
 var matchRouter = require('./matches')
 
 
