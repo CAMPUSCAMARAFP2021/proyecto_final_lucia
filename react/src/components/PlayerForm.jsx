@@ -23,13 +23,20 @@ const PlayerForm = ({ createPlayer }) => {
 
 
     return <>
+    <br></br>
+    <fieldset>
         <form>
+           
+            <label>Introduce the name of the player</label>
+            <br></br>
             <input type="text" name="name" onChange={setName} value={player.name}></input>
+            <br></br>
+            <label>Introduce the number of the t-shirt player</label>
             <input type="number" name="number" onChange={setNumber} value={player.number}></input>
-            <Form.Select size="lg">
-                <option>{player.name}</option>
-            </Form.Select>
-        </form>
+       
+        </form>     
+        </fieldset>
+        <br></br>
         <Button name="enviar" onClick={() => createPlayer(player)}></Button>
         <div>
             {JSON.stringify(player)}

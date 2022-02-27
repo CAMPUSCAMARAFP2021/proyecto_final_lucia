@@ -8,7 +8,7 @@ const Button = ({name, onClick}) => {
 
         <button onClick={() => setLoading(false)}>cargando...</button> :
 
-        <button onClick={() => { setLoading(true); onClick()}}>{name}</button>
+        <button onClick={() => { setLoading(false); onClick()}}>{name}</button>
 
 }  
 

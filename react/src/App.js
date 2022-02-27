@@ -5,9 +5,9 @@ import TeamList from './components/TeamList';
 import PlayerList from './components/PlayerList';
 import MatchList from './components/MatchList';
 import FieldList from './components/FieldList';
-import Container from 'react-bootstrap/Container';
+import { Container, Row, Col} from 'react-bootstrap'
 import NavBar from './components/Navbar';
-import {getMatches} from './api/player'
+
 
 
 
@@ -17,15 +17,30 @@ function App() {
     <Container className="p-3">
       <Container className="p-5 mb-4 bg-light rounded-3">
         <h1 className="header">Sports</h1>
-        <h1>Create Players</h1>
-        <PlayerList />
-        <h1>Create teams</h1>
-        <TeamList />
-        <p>{getMatches}</p>
-        <h1>Create matchs</h1>
-        <MatchList />
-        <h1>Create fields</h1>
-        <FieldList />
+        <hr></hr>
+        <br></br>
+        <Container>
+  <Row>
+    <Col> 
+    <h1>Create Players</h1>
+    <PlayerList/></Col>
+    <Col><h1>Create teams</h1>
+        <TeamList /></Col>
+  </Row>
+  <Row>
+    <Col><h1>Create matchs</h1>
+        <MatchList /></Col>
+    <Col><h1>Create fields</h1>
+        <FieldList /></Col>
+  
+  </Row>
+</Container>
+        
+        <hr></hr>
+        
+        
+        
+        
       </Container>
     </Container>
   </>

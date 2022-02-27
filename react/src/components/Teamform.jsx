@@ -26,15 +26,27 @@ const TeamForm = ({createTeam}) => {
 
 
     return <>
+    <br></br>
         <form>
+        <label>Introduce the name of the team</label>
+            <br></br>
             <input type="text" name="name" onChange={setName} value={team.name}></input>
+            <br></br>
+            <label>Introduce the slogan of the team</label>
+            <br></br>
             <input type="text" name="slogan" onChange={setSlogan} value={team.slogan}></input>
+            <br></br>
+            <label>Introduce the anthem of the team</label>
+            <br></br>
             <input type="text" name="name" onChange={setAnthem} value={team.anthem}></input>
+            <br></br>
         </form>
+        <br></br>
         <Button name="enviar" onClick={() => createTeam(team)}></Button>
         <div>
             {JSON.stringify(team)}
         </div>
+        <br></br>
     </>;
 }
 

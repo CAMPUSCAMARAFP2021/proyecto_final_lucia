@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Button from './Button';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 const MatchForm = ({createMatch}) => {
@@ -7,7 +9,6 @@ const MatchForm = ({createMatch}) => {
         {
             "duration": 0,
             "score": 0,
-            "Date": "",
         }
     );
 
@@ -27,10 +28,16 @@ const MatchForm = ({createMatch}) => {
 
     return <>
         <form>
+        <label>Introduce the duration of the match</label>
+            <br></br>
             <input type="number" name="duration" onChange={setDuration} value={match.duration}></input>
+            <br></br>
+            <label>Introduce the score of the match</label>
+            <br></br>
             <input type="number" name="score" onChange={setScore} value={match.score}></input>
-            <input type="date" name="score" onChange={setDate} value={match.Date}></input>
+            
         </form>
+        <br></br>
         <Button name="enviar" onClick={() => createMatch(match)}></Button>
         <div>
             {JSON.stringify(match)}

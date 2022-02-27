@@ -3,6 +3,7 @@ var router = express.Router();
 
 var teamController = require('../controllers/team')
 var matchRouter = require('./matches')
+var playerRouter = require('./player')
 
 
 router.get('/', async function(req, res) {
@@ -23,6 +24,12 @@ router.use('/:teamId/matches', async (req, res, next) => {
     console.log(req.team)
     next();
 } ,matchRouter);
+
+router.use('/:teamId/player', async (req, res, next) => {
+    const { teamId} = req.params;
+    req.player = await teamController.getTeam(teamId);
+    next();
+} ,playerRouter);
 
 
 router.delete('/:teamId', async(req,res) => {
