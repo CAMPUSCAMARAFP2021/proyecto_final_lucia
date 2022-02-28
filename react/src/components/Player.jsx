@@ -8,6 +8,7 @@ const Player = ({ player, onDelete }) =>
     <Card style={{ width: '20rem' }}>
         <Card.Body>
             <Card.Title>{player.name}</Card.Title>
+            <Card.Title>{player.number}</Card.Title>
             <Button variant="primary" onClick={onDelete}>Eliminar</Button>
         </Card.Body>
     </Card>

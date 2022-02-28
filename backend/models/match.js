@@ -10,6 +10,9 @@ const schema = new Schema({
   teams: [
     {type: Schema.Types.ObjectId, ref:'Team'}
 ],
+judge:{
+  type: Schema.Types.ObjectId, ref:'Player'
+}
   },
   );
 

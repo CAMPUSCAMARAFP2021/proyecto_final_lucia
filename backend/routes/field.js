@@ -18,7 +18,7 @@ router.post('/',async(req, res) => {
 
 router.use('/:fieldId/matches', async (req, res, next) => {
     const { fieldId} = req.params;
-    req.team = await fieldController.getField(fieldId);
+    req.field = await fieldController.getField(fieldId);
     console.log(req.team)
     next();
 } ,matchRouter);

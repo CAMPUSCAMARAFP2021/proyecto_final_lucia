@@ -36,15 +36,15 @@ const FieldForm = ({ createField}) => {
             <br></br>
             <input type="text" name="name" onChange={setName} value={field.name}></input>
             <br></br>
-            <label>Introduce the name of the field</label>
+            <label>Introduce the description of the field</label>
             <br></br>
-            <input type="text" name="slogan" onChange={setDescription} value={field.slogan}></input>
+            <input type="text" name="descriptio" onChange={setDescription} value={field.slogan}></input>
             <br></br>
-            <label>Introduce the name of the field</label>
+            <label>Introduce the place of the field</label>
             <br></br>
-            <input type="text" name="anthem" onChange={setPlace} value={field.anthem}></input>
+            <input type="text" name="place" onChange={setPlace} value={field.anthem}></input>
             <br></br>
-            <label>Introduce the name of the field</label>
+            <label>Introduce the sports of the field</label>
             <br></br>
             <input type="text" name="sports" onChange={setSports} value={field.sports}></input>
             <br></br>

@@ -35,12 +35,6 @@ function App() {
   
   </Row>
 </Container>
-        
-        <hr></hr>
-        
-        
-        
-        
       </Container>
     </Container>
   </>
