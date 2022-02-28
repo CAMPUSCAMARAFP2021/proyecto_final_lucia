@@ -1,8 +1,8 @@
-var express = require('express');
+const express = require('express');
 
-var router = express.Router();
+const router = express.Router();
 
-var matchController = require('../controllers/match')
+const matchController = require('../controllers/match')
 
 
 router.post('/', async (req, res) => {
